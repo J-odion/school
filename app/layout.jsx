@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import EnrollmentFormProvider from "@/components/enrollment-form-provider"
+import { Analytics } from "@vercel/analytics/react"
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
             </div>
           </EnrollmentFormProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
