@@ -60,7 +60,7 @@ export default function FeesPage() {
           <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl">
             Comprehensive fee structure for Nursery, Primary, Junior, and Secondary levels
           </p>
-          <Button asChild variant="outline" className="text-white border-white hover:bg-white/10">
+          <Button asChild variant="outline" className="text-white border-white px-4 hover:bg-white/10">
             <a href="#fees-section1">View Details</a>
           </Button>
         </div>
