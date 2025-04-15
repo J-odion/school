@@ -41,9 +41,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
+        }`}
     >
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="flex items-center justify-between">
@@ -58,14 +57,23 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.href) ? "text-primary" : scrolled ? "text-gray-700" : "text-white"
-                }`}
+                className={`text-sm font-medium transition-colors hover:text-primary ${isActive(item.href) ? "text-primary" : scrolled ? "text-gray-700" : "text-white"
+                  }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button onClick={() => setIsFormOpen(true)} className="bg-accent hover:bg-accent/90 text-white">
+            <Button
+              className="bg-accent hover:bg-accent/90 text-white"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/LittleExplorerLearningArcadeSchoolFeesStructure.pdf";
+                link.download = "LittleExplorerLearningArcadeSchoolFeesStructure.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
               Enroll Now
             </Button>
           </nav>
@@ -84,9 +92,8 @@ export default function Header() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`text-base font-medium transition-colors hover:text-primary ${
-                        isActive(item.href) ? "text-primary" : "text-gray-600"
-                      }`}
+                      className={`text-base font-medium transition-colors hover:text-primary ${isActive(item.href) ? "text-primary" : "text-gray-600"
+                        }`}
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}
@@ -96,7 +103,7 @@ export default function Header() {
                     onClick={() => {
                       setIsOpen(false)
                       setIsFormOpen(true)
-                    }} 
+                    }}
                     className="bg-accent si hover:bg-accent/90 text-white w-full mt-4"
                   >
                     Enroll Now

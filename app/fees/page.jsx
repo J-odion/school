@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowLeft, DollarSign, CreditCard, Calendar, Info } from "lucide-react"
+import { ArrowLeft, DollarSign, CreditCard, Calendar, Info, ChevronRight } from "lucide-react"
 import { useEnrollmentForm } from "@/components/enrollment-form-provider"
 import { useEffect, useState } from "react"
 import ParallaxSection from "@/components/parallax-section"
@@ -73,7 +73,7 @@ export default function FeesPage() {
             className={`transition-all duration-1000 transform ${isVisible.section1 ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"}`}
           >
             <div className="mb-12">
-              
+
               <h2 className="text-4xl font-bold text-center mb-6 gradient-text">Academic Year 2024-2025</h2>
               <p className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">
                 At Little Explorer Learning Arcade, we strive to provide quality education at competitive rates across
@@ -331,10 +331,17 @@ export default function FeesPage() {
             <div className="text-center">
               <Button
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-white px-8 py-6"
-                onClick={() => setIsFormOpen(true)}
+                className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6"
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = "/LittleExplorerLearningArcadeSchoolFeesStructure.pdf";
+                  link.download = "LittleExplorerLearningArcadeSchoolFeesStructure.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
               >
-                Begin Enrollment Process
+                Begin Enrollment Process <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </div>

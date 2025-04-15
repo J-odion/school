@@ -74,7 +74,14 @@ export default function Home() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6"
-              onClick={() => setIsFormOpen(true)}
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/LittleExplorerLearningArcadeSchoolFeesStructure.pdf";
+                link.download = "LittleExplorerLearningArcadeSchoolFeesStructure.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
             >
               Enroll Now
             </Button>
@@ -284,11 +291,19 @@ export default function Home() {
             <div className="text-center">
               <Button
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-white text-lg px-10 py-6"
-                onClick={() => setIsFormOpen(true)}
+                className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6"
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = "/LittleExplorerLearningArcadeSchoolFeesStructure.pdf";
+                  link.download = "LittleExplorerLearningArcadeSchoolFeesStructure.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
               >
                 Begin Enrollment Process <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
+
               <p className="mt-4 text-gray-500">
                 Have questions?{" "}
                 <Link href="/contact" className="text-primary hover:underline">
